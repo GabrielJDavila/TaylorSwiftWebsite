@@ -77,6 +77,11 @@ h1, h2, h3, p, a {
   font-family: "Italianno", cursive;
 }
 
+.nav-open, .nav-close, a {
+  cursor: pointer;
+}
+
+/* ----------- HEADER/NAV STYLES --------- */
 .site-header {
   background: #93154F;
   color: white;
@@ -99,17 +104,23 @@ h1, h2, h3, p, a {
 .nav-open {
   color: #D5ADC2;
   font-size: 2.25rem;
+  transition: .3s all ease;
+}
+
+.nav-open:hover {
+  color: #d06a9a;
 }
 
 .mobile-nav-container {
   position: absolute;
   top: 0;
   z-index: 10;
+  height: 100vh;
   background: #D5ADC2;
   color: #93154F;
   display: flex;
   justify-content: space-between;
-  transition: .3sec ease-in-out;
+  transition: .3s ease-in-out;
   overflow: hidden;
 }
 
@@ -141,7 +152,14 @@ h1, h2, h3, p, a {
 .nav-close {
   color: black;
   font-size: 2.25rem;
+  width: 40px;
+  margin-left: auto;
   text-align: right;
+  transition: .3s all ease;
+}
+
+.nav-close:hover {
+  color: white;
 }
 
 .mobile-nav-links {
@@ -154,4 +172,75 @@ h1, h2, h3, p, a {
 .mobile-nav-link {
   text-align: right;
   font-size: 2.25rem;
+  transition: .3s all ease;
+}
+
+.mobile-nav-link:hover {
+  color: #bb5b88;
+}
+
+/* ------------- HERO SECTION STYLES --------------- */
+
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.hero-img {
+  width: 100%;
+}
+
+.filler-container {
+  background: #93154F;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 90%;
+  height: 300px;
+  z-index: 8;
+  margin: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: .8;
+}
+
+.hero-text-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 90%;
+  height: 300px;
+  z-index: 9;
+  margin: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: .5rem;
+  padding: 1rem;
+}
+
+.hero-text {
+  color: #D5ADC2;
+}
+
+.hero-lg, .hero-sm {
+  font-weight: 200;
+}
+
+.hero-sm {}
+
+.hero-btn {
+  background: none;
+  border: 1px solid #D5ADC2;
+  padding: 1rem;
 }

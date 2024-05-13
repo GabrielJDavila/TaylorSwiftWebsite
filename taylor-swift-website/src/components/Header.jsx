@@ -1,12 +1,10 @@
-
 import { useState } from "react";
 
 export default function Header() {
     const [openNav, setOpenNav] = useState(false)
 
     const menuStateStyles = {
-        width: openNav ? "100%" : "0",
-        height: openNav ? "100vh" : "0"
+        width: openNav ? "100%" : "0"
     }
 
     function flipMenuState() {
