@@ -3,6 +3,7 @@
 
 import Header from "./components/Header"
 import Hero from "./components/Hero"
+import Projects from "./components/Projects"
 
 function App() {
 
@@ -10,6 +11,7 @@ function App() {
     <main>
       <Header />
       <Hero />
+      <Projects />
     </main>
   )
 }

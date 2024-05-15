@@ -244,3 +244,34 @@ h1, h2, h3, p, a {
   border: 1px solid #D5ADC2;
   padding: 1rem;
 }
+
+/* --------- PROJECTS SECTION STYLES ---------- */
+
+.projects-container {
+  background: black;
+}
+
+.current-song {
+  background: #93154F;
+}
+
+.now-playing-container {
+}
+
+.now-playing-image-container {}
+
+.now-playing-btn-container {}
+
+.song-list {
+  background: #93154F;
+}
+
+.song-example {}
+
+.projects-song-btn {}
+
+.play {}
+
+.pause {}
+
+.download {}
