@@ -191,11 +191,23 @@ h1, h2, h3, p, a {
   width: 100%;
 }
 
+.border-blend-el {
+  position: relative;
+  height: 1px;
+  background: #000000;
+  width: 100%;
+  box-shadow: 0px 0px 30px 35px #000000;
+  /* width: 100%;
+  border: 2px solid black;
+  box-shadow: 0 0 0px 100px black;
+  opacity: 1; */
+}
+
 .filler-container {
   background: #93154F;
   position: absolute;
   top: 0;
-  bottom: 0;
+  bottom: 100px;
   right: 0;
   left: 0;
   width: 90%;
@@ -213,7 +225,7 @@ h1, h2, h3, p, a {
 .hero-text-container {
   position: absolute;
   top: 0;
-  bottom: 0;
+  bottom: 100px;
   right: 0;
   left: 0;
   width: 90%;
@@ -247,20 +259,69 @@ h1, h2, h3, p, a {
 
 /* --------- PROJECTS SECTION STYLES ---------- */
 
-.projects-container {
+.projects-page {
+  position: relative;
+  background: #93154F;
+}
+
+.opac-projects-background {
+  position: absolute;
   background: black;
+  width: 85%;
+  max-width: 970px;
+  height: 90%;
+  max-height: 640px;
+  margin: auto;
+  top: 10px;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  opacity: .75;
+
+}
+
+.projects-container {
+  padding: 1rem;
+  color: white;
+  position: relative;
+  width: 90%;
+  height: 100%;
+  margin: auto;
+  padding: 3rem;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .current-song {
   background: #93154F;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 2rem;
 }
 
 .now-playing-container {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
 }
 
-.now-playing-image-container {}
+.now-playing-image-container {
+  background: white;
+  padding: 1rem;
+  color: #000000;
+  border-radius: 8px;
+}
 
-.now-playing-btn-container {}
+.now-playing-btn-container {
+  display: flex;
+  gap: .5rem;
+  flex-direction: column;
+}
 
 .song-list {
   background: #93154F;
@@ -268,7 +329,10 @@ h1, h2, h3, p, a {
 
 .song-example {}
 
-.projects-song-btn {}
+.projects-song-btn {
+  border: none;
+  background: none;
+}
 
 .play {}
 
