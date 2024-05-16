@@ -4,7 +4,9 @@ export default function Projects() {
     const [currentSong, setCurrentSong] = useState({
         title: ""
     })
-    const [play, setPlay] = useState(false)
+
+    // With this, I'm creating an array to simulate song data. I then create some state that uses Array() to
+    // create a new array of states based on the length of songArr. Each state is false.
     const songArr = [
         "SONG 1",
         "SONG 2",
@@ -13,21 +15,29 @@ export default function Projects() {
         "SONG 5",
         "SONG 6",
     ]
-
-    function togglePlayPauseButton() {
-        setPlay(prev => !prev)
+    const [playStates, setPlayStates] = useState(Array(songArr.length).fill(false))
+    
+    // We then use this function to flip the state at the specific index that we are passing in.
+    function togglePlayPauseButton(index) {
+        setPlayStates(prevStates => {
+            const newStates = [...prevStates]
+            newStates[index] = !newStates[index]
+            return newStates
+        })
     }
 
+    // Iterating over songArr, we pass the index of each song into togglePlayPauseButton so that
+    // way we can flip the state of each button independently.
     const renderedSongs = songArr.map((song, index) => {
         return (
         <div key={index} className="song-example">
             <p>{song}</p>
-            {!play ?
-            <button onClick={togglePlayPauseButton} className="projects-song-btn play">
+            {!playStates[index] ?
+            <button onClick={() => togglePlayPauseButton(index)} className="projects-song-btn play">
                 <img src="../src/assets/images/play.png"/>                            
             </button>
             :
-            <button onClick={togglePlayPauseButton} className="projects-song-btn pause">
+            <button onClick={() => togglePlayPauseButton(index)} className="projects-song-btn pause">
                 <img src="../src/assets/images/pause.png"/>
             </button>
             }
@@ -63,66 +73,6 @@ export default function Projects() {
                 </div>
                 <div className="song-list">
                     {renderedSongs}
-                    {/* <div className="song-example">
-                        <p>SONG 1</p>
-                        <button className="projects-song-btn play">
-                            <img src="../src/assets/images/play.png"/>                            
-                        </button>
-                        <button className="projects-song-btn pause">
-                            <img src="../src/assets/images/pause.png"/>
-                        </button>
-                        <button className="projects-song-btn download">
-                            <img src="../src/assets/images/download.png"/>
-                        </button>
-                    </div>
-                    <div className="song-example">
-                        <p>SONG 2</p>
-                        <button className="projects-song-btn play">
-                            <img src="../src/assets/images/play.png"/>                            
-                        </button>
-                        <button className="projects-song-btn pause">
-                            <img src="../src/assets/images/pause.png"/>
-                        </button>
-                        <button className="projects-song-btn download">
-                            <img src="../src/assets/images/download.png"/>
-                        </button>
-                    </div>
-                    <div className="song-example">
-                        <p>SONG 3</p>
-                        <button className="projects-song-btn play">
-                            <img src="../src/assets/images/play.png"/>                            
-                        </button>
-                        <button className="projects-song-btn pause">
-                            <img src="../src/assets/images/pause.png"/>
-                        </button>
-                        <button className="projects-song-btn download">
-                            <img src="../src/assets/images/download.png"/>
-                        </button>
-                    </div>
-                    <div className="song-example">
-                        <p>SONG 4</p>
-                        <button className="projects-song-btn play">
-                            <img src="../src/assets/images/play.png"/>                            
-                        </button>
-                        <button className="projects-song-btn pause">
-                            <img src="../src/assets/images/pause.png"/>
-                        </button>
-                        <button className="projects-song-btn download">
-                            <img src="../src/assets/images/download.png"/>
-                        </button>
-                    </div>
-                    <div className="song-example">
-                        <p>SONG 5</p>
-                        <button className="projects-song-btn play">
-                            <img src="../src/assets/images/play.png"/>                            
-                        </button>
-                        <button className="projects-song-btn pause">
-                            <img src="../src/assets/images/pause.png"/>
-                        </button>
-                        <button className="projects-song-btn download">
-                            <img src="../src/assets/images/download.png"/>
-                        </button>
-                    </div> */}
                 </div>
             </div>
         </div>
