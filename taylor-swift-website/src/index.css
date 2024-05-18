@@ -326,6 +326,7 @@ h1, h2, h3, p, a {
   padding: 1rem 2rem;
   max-height: 218px;
   border-radius: 8px;
+  transition: .3s ease-in-out;
 }
 
 .now-playing-container {
