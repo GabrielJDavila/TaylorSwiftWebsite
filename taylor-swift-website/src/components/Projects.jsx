@@ -2,9 +2,9 @@ import { useEffect, useState } from "react"
 
 export default function Projects() {
     const [currentSong, setCurrentSong] = useState({
-        title: ""
+        title: "",
+        index: ""
     })
-    console.log(currentSong)
     // With this, I'm creating an array to simulate song data. I then create some state that uses Array() to
     // create a new array of states based on the length of songArr. Each state is false.
     const songArr = [
@@ -17,7 +17,8 @@ export default function Projects() {
     ]
     const [playStates, setPlayStates] = useState(Array(songArr.length).fill(false))
     const [currentSongPlayState, setCurrentSongPlayState] = useState(false)
-    console.log(currentSongPlayState)
+
+    console.log(playStates)
 
     const currentSongStyles = {
         height: currentSongPlayState ? "218px" : "0px",
@@ -26,7 +27,7 @@ export default function Projects() {
     }
     
     // We then use this function to flip the state at the specific index that we are passing in.
-    function togglePlayPauseButton(index) {
+    function togglePlayPauseButton(e, index) {
         setPlayStates(prevStates => {
             const newStates = Array(songArr.length).fill(false)
             newStates[index] = !prevStates[index]
@@ -34,11 +35,25 @@ export default function Projects() {
         })
         setCurrentSong(prev => ({
             ...prev,
-            title: songArr[index]
+            title: songArr[index],
+            index: index
         }))
-        if(!currentSongPlayState) {
-            setCurrentSongPlayState(prev => !prev)
+        if(e.currentTarget.dataset.play) {
+            setCurrentSongPlayState(true)
         }
+        if(e.currentTarget.dataset.pause) {
+            setCurrentSongPlayState(false)
+        }
+    }
+
+    // Toggling the current song state to play/pause. Also toggles the play/pause button of the corresponding song in the playlist.
+    function toggleCurrentSongPlayState(index) {
+        setCurrentSongPlayState(prev => !prev)
+        setPlayStates(prevStates => {
+            const newStates = [...prevStates]
+            newStates[index] = !prevStates[index]
+            return newStates
+        })
     }
 
     // Iterating over songArr, we pass the index of each song into togglePlayPauseButton so that
@@ -48,11 +63,11 @@ export default function Projects() {
         <div key={index} className="song-example">
             <p>{song}</p>
             {!playStates[index] ?
-            <button onClick={() => togglePlayPauseButton(index)} className="projects-song-btn play">
+            <button onClick={e => togglePlayPauseButton(e, index)} data-play="play" className="projects-song-btn play">
                 <img src="../src/assets/images/play.png"/>                            
             </button>
             :
-            <button onClick={() => togglePlayPauseButton(index)} className="projects-song-btn pause">
+            <button onClick={e => togglePlayPauseButton(e, index)} data-pause="pause" className="projects-song-btn pause">
                 <img src="../src/assets/images/pause.png"/>
             </button>
             }
@@ -81,8 +96,11 @@ export default function Projects() {
                         </div>
                     </div>
                     <div className="now-playing-btn-container">
-                        <button className="projects-song-btn play-current"><img src="../src/assets/images/play.png"/></button>
-                        <button className="projects-song-btn pause-current"><img src="../src/assets/images/pause.png"/></button>
+                        {!currentSongPlayState ?
+                            <button onClick={() => toggleCurrentSongPlayState(currentSong.index)} className="projects-song-btn play-current"><img src="../src/assets/images/play.png"/></button>
+                            :
+                            <button onClick={() => toggleCurrentSongPlayState(currentSong.index)} className="projects-song-btn pause-current"><img src="../src/assets/images/pause.png"/></button>
+                        }
                         <button className="projects-song-btn download-current"><img src="../src/assets/images/download.png"/></button>
                     </div>
                 </div>
