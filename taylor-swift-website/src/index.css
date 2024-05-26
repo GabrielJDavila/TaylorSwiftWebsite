@@ -125,7 +125,7 @@ h1, h2, h3, p, a {
   width: 100%;
 }
 
-.border-blend-el {
+/* .border-blend-el {
   position: relative;
   height: 1px;
   background: #000000;
@@ -134,8 +134,9 @@ h1, h2, h3, p, a {
   /* width: 100%;
   border: 2px solid black;
   box-shadow: 0 0 0px 100px black;
-  opacity: 1; */
+  opacity: 1;
 }
+*/
 
 .filler-container {
   background: #93154F;
@@ -214,26 +215,27 @@ h1, h2, h3, p, a {
   background: black;
   width: 85%;
   max-width: 970px;
-  height: auto;
+  height: 100%;
   margin: auto;
-  top: 10px;
-  bottom: 10px;
+  top: 0px;
+  bottom: 0px;
   left: 0;
   right: 0;
+  max-height: 700px;
   z-index: 1;
   opacity: .8;
   border-radius: 8px;
-
+  overflow: hidden;
 }
 
 .projects-container {
   padding: 1rem;
   color: white;
   position: absolute;
-  top: 10px;
-  bottom: 10px;
-  left: 0;
+  top: 0;
+  bottom: 0;
   right: 0;
+  left: 0;
   width: 90%;
   height: 100%;
   max-height: 700px;
@@ -243,6 +245,7 @@ h1, h2, h3, p, a {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  overflow: hidden;
 }
 
 .projects-title {
@@ -259,6 +262,7 @@ h1, h2, h3, p, a {
   max-height: 218px;
   border-radius: 8px;
   transition: .3s ease-in-out;
+  height: 30%;
 }
 
 .now-playing-container {
@@ -286,11 +290,12 @@ h1, h2, h3, p, a {
   flex-direction: column;
   gap: 1rem;
   padding: 1rem;
-  max-height: 350px;
-  overflow: auto;
+  height: 70%;
+  max-height: 450px;
   scrollbar-width: thin;
   scrollbar-color: #D5ADC2;
   border-radius: 8px;
+  overflow-y: scroll;
 }
 
 .song-example {
@@ -332,18 +337,19 @@ h1, h2, h3, p, a {
   padding: 1rem;
   color: white;
   position: absolute;
-  top: 10px;
-  bottom: 10px;
+  top: 0;
+  bottom: 0;
   left: 0;
   right: 0;
   width: 90%;
-  height: auto;
+  height: 100%;
+  max-height: 700px;
   margin: auto;
-  padding:2rem 3rem;
+  padding:2rem 2rem;
   z-index: 3;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 .tour-dates-title {
@@ -355,7 +361,10 @@ h1, h2, h3, p, a {
   flex-direction: column;
   text-align: left;
   justify-content: left;
-  gap: 2rem;
+  gap: 1.5rem;
+  overflow-y: scroll;
+  height: 80%;
+  padding: 0 1rem;
 }
 
 .tour-date-item {
