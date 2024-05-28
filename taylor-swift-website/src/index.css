@@ -385,3 +385,57 @@ h1, h2, h3, p, a {
 .location-text {
   text-align: left;
 }
+
+/* -------- SIGN UP COMPONENT STYLES --------- */
+
+.signup-page {
+  position: relative;
+}
+
+.opac-signup-background {
+  position: absolute;
+  background: black;
+  width: 85%;
+  max-width: 970px;
+  height: 100%;
+  margin: auto;
+  top: 0px;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  max-height: 370px;
+  z-index: 1;
+  opacity: .8;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.signup-form {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 90%;
+  padding: 2rem;
+  z-index: 10;
+  color: white;
+  font-weight: 100;
+  gap: 1rem;
+}
+
+.input-container {
+  display: flex;
+  justify-content: center;
+}
+
+.signup-btn {
+  width: 200px;
+  text-align: center;
+  margin: 0 auto;
+}
