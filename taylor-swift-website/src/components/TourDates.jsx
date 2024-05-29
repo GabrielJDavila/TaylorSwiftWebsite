@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 export default function TourDates() {
 
     return (
-        <div className="tour-dates-page-container">
+        <div className="tour-dates-section">
             <div className="border-blend-el"></div>
             <img src="../src/assets/images/tayswiftfront.png" className="hero-img"/>
             <div className="border-blend-el"></div>
