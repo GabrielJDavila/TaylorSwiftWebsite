@@ -115,7 +115,8 @@ h1, h2, h3, p, a {
 
 /* ------------- HERO SECTION STYLES --------------- */
 
-.hero-section {
+.hero-section, .projects-section,
+.tour-dates-section, .signup-section {
   display: flex;
   flex-direction: column;
   position: relative;
@@ -184,8 +185,6 @@ h1, h2, h3, p, a {
   font-weight: 200;
 }
 
-.hero-sm {}
-
 .hero-btn {
   background: none;
   border: 1px solid #D5ADC2;
@@ -193,10 +192,6 @@ h1, h2, h3, p, a {
 }
 
 /* --------- PROJECTS SECTION STYLES ---------- */
-
-.projects-page {
-  position: relative;
-}
 
 .projects-page-background {
   height: 100%;
@@ -252,6 +247,13 @@ h1, h2, h3, p, a {
   font-weight: 200;
 }
 
+.projects-media-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 90%;
+}
+
 .current-song {
   background: #93154F;
   display: flex;
@@ -262,7 +264,7 @@ h1, h2, h3, p, a {
   max-height: 218px;
   border-radius: 8px;
   transition: .3s ease-in-out;
-  height: 30%;
+  height: 20%;
 }
 
 .now-playing-container {
@@ -290,7 +292,7 @@ h1, h2, h3, p, a {
   flex-direction: column;
   gap: 1rem;
   padding: 1rem;
-  height: 70%;
+  height: 80%;
   max-height: 450px;
   scrollbar-width: thin;
   scrollbar-color: #D5ADC2;
@@ -313,25 +315,15 @@ h1, h2, h3, p, a {
   background: none;
 }
 
-.play {
+.play, .pause {
   margin-left: auto;
 }
-
-.pause {
-  margin-left: auto;
-}
-
-.download {}
 
 .projects-page p {
   font-family: "Inter", sans-serif;
 }
 
 /* ---------- TOUR DATES PAGE STYLES --------- */
-
-.tour-dates-page-container {
-  position: relative;
-}
 
 .tour-dates-list-container {
   padding: 1rem;
@@ -388,10 +380,6 @@ h1, h2, h3, p, a {
 
 /* -------- SIGN UP COMPONENT STYLES --------- */
 
-.signup-page {
-  position: relative;
-}
-
 .opac-signup-background {
   position: absolute;
   background: black;
@@ -422,20 +410,69 @@ h1, h2, h3, p, a {
   flex-direction: column;
   justify-content: center;
   width: 90%;
+  max-height: 370px;
   padding: 2rem;
   z-index: 10;
   color: white;
-  font-weight: 100;
   gap: 1rem;
+}
+
+.signup-form-title {
+  font-weight: 200;
+  margin-bottom: auto;
 }
 
 .input-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  gap: 1rem;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.input-item {
+  height: 48px;
+  text-align: left;
+  font-size: 1rem;
 }
 
 .signup-btn {
-  width: 200px;
+  width: 169px;
+  height: 48px;
+  border: none;
+  background: #93154F;
+  color: white;
+  font-family: "Inter", sans-serif;
+  font-size: 1.5rem;
   text-align: center;
-  margin: 0 auto;
+  margin: auto auto 0;
+}
+
+.success-message-container {
+  position: absolute;
+  bottom: 160px;
+  right: 0;
+  left: 0;
+  height: 60px;
+  width: 90%;
+  margin: auto;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(113, 224, 113);
+  color: white;
+  z-index: 11;
+}
+
+.success-message {
+  font-family: "Inter", sans-serif;
+}
+
+@media screen and (min-width: 700px) {
+  .hero-section, .projects-section,
+  .tour-dates-section, .signup-section {
+    flex-direction: row;
+  }
 }

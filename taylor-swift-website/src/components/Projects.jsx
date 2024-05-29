@@ -79,7 +79,7 @@ export default function Projects() {
     })
 
     return (
-        <div className="projects-page">
+        <div className="projects-section">
             {/* <div className="projects-page-background"></div> */}
             <img src="../src/assets/images/tayswiftfront.png" className="hero-img"/>
             <div className="border-blend-el"></div>
@@ -87,25 +87,27 @@ export default function Projects() {
             <div className="opac-projects-background"></div>
             <div className="projects-container">
                 <h1 className="projects-title">PROJECTS</h1>
-                <div className="current-song" style={currentSongStyles}>
-                    <div className="now-playing-container">
-                        <p>NOW PLAYING</p>
-                        <div className="now-playing-image-container">
-                            <img src="../src/assets/images/previewImg.png"/>
-                            <p>{currentSong.title}</p>
+                <div className="projects-media-container">
+                    <div className="current-song" style={currentSongStyles}>
+                        <div className="now-playing-container">
+                            <p>NOW PLAYING</p>
+                            <div className="now-playing-image-container">
+                                <img src="../src/assets/images/previewImg.png"/>
+                                <p>{currentSong.title}</p>
+                            </div>
+                        </div>
+                        <div className="now-playing-btn-container">
+                            {!currentSongPlayState ?
+                                <button onClick={() => toggleCurrentSongPlayState(currentSong.index)} className="projects-song-btn play-current"><img src="../src/assets/images/play.png"/></button>
+                                :
+                                <button onClick={() => toggleCurrentSongPlayState(currentSong.index)} className="projects-song-btn pause-current"><img src="../src/assets/images/pause.png"/></button>
+                            }
+                            <button className="projects-song-btn download-current"><img src="../src/assets/images/download.png"/></button>
                         </div>
                     </div>
-                    <div className="now-playing-btn-container">
-                        {!currentSongPlayState ?
-                            <button onClick={() => toggleCurrentSongPlayState(currentSong.index)} className="projects-song-btn play-current"><img src="../src/assets/images/play.png"/></button>
-                            :
-                            <button onClick={() => toggleCurrentSongPlayState(currentSong.index)} className="projects-song-btn pause-current"><img src="../src/assets/images/pause.png"/></button>
-                        }
-                        <button className="projects-song-btn download-current"><img src="../src/assets/images/download.png"/></button>
+                    <div className="song-list">
+                        {renderedSongs}
                     </div>
-                </div>
-                <div className="song-list">
-                    {renderedSongs}
                 </div>
             </div>
         </div>
